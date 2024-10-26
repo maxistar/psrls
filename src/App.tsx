@@ -7,14 +7,9 @@ import FeedbackPage from "./FeedbackPage";
 function App() {
     const [mode, setMode] = useState('start'); 
     
-    const handlePageSelect = (selectedMode) => {
+    const handlePageSelect = (selectedMode: string) => {
         setMode(selectedMode);
     };
-
-    const handleReturnToMenu = () => {
-        setMode(null); // Reset mode to null to go back to CoverPage
-    };
-
 
     return (
         <>

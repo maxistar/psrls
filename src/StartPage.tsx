@@ -1,7 +1,8 @@
 import { TonConnectButton } from "@tonconnect/ui-react";
 import './StartPage.css';
+import {PageProps} from "./PageProps";
 
-const StartPage = ({ handlePageSelect }) => {
+const StartPage: React.FC<PageProps> = ({ handlePageSelect }) => {
     
     return (
         <>

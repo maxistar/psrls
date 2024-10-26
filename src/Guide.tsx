@@ -1,6 +1,7 @@
+import {PageProps} from "./PageProps";
 
 
-const Guide = ({ handlePageSelect }) => {
+const Guide: React.FC<PageProps> = ({ handlePageSelect }) => {
     return (
         <>
         guide

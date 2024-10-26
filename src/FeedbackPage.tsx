@@ -1,6 +1,7 @@
+import {PageProps} from "./PageProps";
 
 
-const Feedback = ({ handlePageSelect }) => {
+const Feedback: React.FC<PageProps>  = ({ handlePageSelect }) => {
     return (
         <>
             feedback
