@@ -1,0 +1,14 @@
+.mode-buttons button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    background-color: #0095DD;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.mode-buttons button:hover {
+    background-color: #007bb5;
+}

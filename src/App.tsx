@@ -1,31 +1,26 @@
 import { useState } from 'react'
 import './App.css'
-import { TonConnectUIProvider, TonConnectButton } from "@tonconnect/ui-react";
+import StartPage from './StartPage'
+import Guide from "./Guide";
+import FeedbackPage from "./FeedbackPage";
 
 function App() {
-    const [count, setCount] = useState(0)
+    const [mode, setMode] = useState('start'); 
+    
+    const handlePageSelect = (selectedMode) => {
+        setMode(selectedMode);
+    };
+
+    const handleReturnToMenu = () => {
+        setMode(null); // Reset mode to null to go back to CoverPage
+    };
+
 
     return (
         <>
-            <TonConnectUIProvider manifestUrl="https://projects.maxistar.me/psrls/tonconnect-manifest.json">
-                <header style={{display: 'flex', justifyContent: 'space-between'}}>
-                    <span>My App with React UI</span>
-                    <TonConnectButton />
-                </header>
-                <h1>Vite + React</h1>
-                <div className="card">
-                    <button onClick={() => setCount((count) => count + 1)}>
-                        count is {count}
-                    </button>
-                    <p>
-                        Edit <code>src/App.tsx</code> and save to test HMR
-                    </p>
-                </div>
-                <p className="read-the-docs">
-                    Click on the Vite and React logos to learn more
-                </p>
-            </TonConnectUIProvider>
-
+            {mode==='start' ? (<StartPage handlePageSelect={ handlePageSelect }></StartPage>) : (<></>)}
+            {mode==='guide' ? (<Guide handlePageSelect={ handlePageSelect }></Guide>) : (<></>)}
+            {mode==='feedback' ? (<FeedbackPage handlePageSelect={ handlePageSelect }></FeedbackPage>) : (<></>)}
         </>
     )
 }
