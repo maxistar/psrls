@@ -8,7 +8,11 @@ function App() {
     const [mode, setMode] = useState('start'); 
     
     const handlePageSelect = (selectedMode: string) => {
-        setMode(selectedMode);
+        if (selectedMode === 'guide') {
+            window.open('https://projects.maxistar.me/psrls/map_moekerstrase.html')
+        } else {
+            setMode(selectedMode);
+        }
     };
 
     return (
