@@ -3,6 +3,7 @@ import './App.css'
 import StartPage from './StartPage'
 import Guide from "./Guide";
 import FeedbackPage from "./FeedbackPage";
+import {TonConnectButton} from "@tonconnect/ui-react";
 
 function App() {
     const [mode, setMode] = useState('start'); 
@@ -17,6 +18,10 @@ function App() {
 
     return (
         <>
+            <header style={{display: 'flex', justifyContent: 'space-between'}}>
+                <span>AR platform</span>
+                <TonConnectButton />
+            </header>
             {mode==='start' ? (<StartPage handlePageSelect={ handlePageSelect }></StartPage>) : (<></>)}
             {mode==='guide' ? (<Guide handlePageSelect={ handlePageSelect }></Guide>) : (<></>)}
             {mode==='feedback' ? (<FeedbackPage handlePageSelect={ handlePageSelect }></FeedbackPage>) : (<></>)}

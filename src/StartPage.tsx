@@ -6,10 +6,6 @@ const StartPage: React.FC<PageProps> = ({ handlePageSelect }) => {
     
     return (
         <>
-            <header style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>AR platform</span>
-                <TonConnectButton />
-            </header>
             <h1>Adventure Guide</h1>
             <p className="read-the-docs">
                 Start your adventure right here...
