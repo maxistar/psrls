@@ -1,4 +1,3 @@
-import { TonConnectButton } from "@tonconnect/ui-react";
 import './StartPage.css';
 import {PageProps} from "./PageProps";
 
