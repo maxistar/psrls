@@ -23,8 +23,6 @@
 
         .map-marker {
             position: absolute;
-            width: 3px;
-            height: 3px;
             left: 10px;
             right: 10px;
             overflow: hidden;
@@ -64,16 +62,18 @@
 </a-scene>
 
 <div id="minimap">
-    <div style="padding:10px">
-        my position
+    <div style="padding:10px" id="statusLine">
+        minimap
     </div>
-    <div id="pointscontainer">
-
-    </div>
-
+    <div id="pointscontainer"></div>
 </div>
 
 <script>
+    
+    function getBrowserInfo() {
+        return navigator.userAgent;
+    }
+    
     const points = [
         [52.4980024, 13.3781442, 'blue'],
         [52.5002821, 13.3692082, 'yellow'],
@@ -85,8 +85,6 @@
     function getLocation() {
         // Check if Geolocation is supported by the browser
         if (navigator.geolocation) {
-            status.textContent = 'Locating...';
-
             // Get the current position
             navigator.geolocation.getCurrentPosition(
                 (position) => {
@@ -163,7 +161,9 @@
     }
 
     setInterval(getLocation, 5000);
-
+    const status = document.getElementById('statusLine');
+    status.innerText = getBrowserInfo();
+    
 </script>
 
 </body>
