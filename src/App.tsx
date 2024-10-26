@@ -9,7 +9,7 @@ function App() {
     
     const handlePageSelect = (selectedMode: string) => {
         if (selectedMode === 'guide') {
-            window.open('https://projects.maxistar.me/psrls/map_moekerstrase.html')
+            window.Telegram.WebApp.openLink('https://projects.maxistar.me/psrls/map_moekerstrase.html')
         } else {
             setMode(selectedMode);
         }
