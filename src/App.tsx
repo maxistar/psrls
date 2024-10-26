@@ -7,7 +7,7 @@ function App() {
 
     return (
         <>
-            <TonConnectUIProvider manifestUrl="https://https://projects.maxistar.me/psrls/tonconnect-manifest.json">
+            <TonConnectUIProvider manifestUrl="https://projects.maxistar.me/psrls/tonconnect-manifest.json">
                 <header style={{display: 'flex', justifyContent: 'space-between'}}>
                     <span>My App with React UI</span>
                     <TonConnectButton />
