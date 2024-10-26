@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import { TonConnectUIProvider, TonConnectButton } from "@tonconnect/ui-react";
 
 function App() {
     const [count, setCount] = useState(0)
@@ -8,7 +8,10 @@ function App() {
     return (
         <>
             <TonConnectUIProvider manifestUrl="https://https://projects.maxistar.me/psrls/tonconnect-manifest.json">
-
+                <header style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <span>My App with React UI</span>
+                    <TonConnectButton />
+                </header>
                 <h1>Vite + React</h1>
                 <div className="card">
                     <button onClick={() => setCount((count) => count + 1)}>
