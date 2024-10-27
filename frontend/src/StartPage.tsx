@@ -5,9 +5,9 @@ const StartPage: React.FC<PageProps> = ({ handlePageSelect }) => {
     
     return (
         <>
-            <h1>Adventure Guide</h1>
+            <h1>Guided Adventures</h1>
             <p className="read-the-docs">
-                Start your adventure right here...
+                Your Adventure starts right here...
             </p>
             <div className="mode-buttons">
                 <button className="mode-button" onClick={() => handlePageSelect('select')}>Select a Tour</button>
