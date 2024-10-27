@@ -8,34 +8,9 @@
             src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
     <script type='text/javascript'
             src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+    <link rel="stylesheet" href="map.css" />
+    <script type='text/javascript' src='map.js'></script>
 
-    <style>
-        #minimap {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            left: 0;
-            bottom: 0;
-            border: 1px solid white;
-            overflow: hidden;
-            color: white
-        }
-
-        .map-marker {
-            position: absolute;
-            left: 10px;
-            right: 10px;
-            overflow: hidden;
-            width: 10px;
-            height: 10px;
-            background-color: red;
-            border-radius: 50%;
-        }
-        
-        #statusLine {
-            color: #888888;
-        }
-    </style>
 </head>
 
 <body>
@@ -52,7 +27,7 @@
               gps-new-entity-place="latitude: 52.5002821; longitude: 13.3692082" scale="10 10 10"></a-entity>
 
     <!-- u-bahn -->
-    <a-entity material='color: red' geometry='primitive: box'
+    <a-entity material='color: red' geometry='primitive: plane'
               gps-new-entity-place="latitude: 52.4994468; longitude: 13.372475" scale="10 10 10"></a-entity>
 
     <!-- Tempodrom -->
@@ -60,7 +35,7 @@
               gps-new-entity-place="latitude: 52.501482; longitude: 13.381187" scale="10 10 10"></a-entity>
 
     <!-- part -->
-    <a-entity material='color: green' geometry='primitive: box'
+    <a-entity material='color: green' geometry='primitive: cone'
               gps-new-entity-place="latitude: 52.495300; longitude: 13.377284" scale="10 10 10"></a-entity>
 
 </a-scene>
@@ -74,99 +49,15 @@
 
 <script>
     
-    function getBrowserInfo() {
-        return navigator.userAgent;
-    }
-    
-    const points = [
+    window.points = [
         [52.4980024, 13.3781442, 'blue'],
         [52.5002821, 13.3692082, 'yellow'],
         [52.4994468, 13.372475, 'red'],
         [52.501482, 13.381187, 'orange'],
         [52.495300, 13.377284, 'green']
     ]
-
-    function getLocation() {
-        // Check if Geolocation is supported by the browser
-        if (navigator.geolocation) {
-            // Get the current position
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
-
-                    const newPoints = [...points, [latitude, longitude, 'white']]
-                    console.log(latitude, longitude, 'white')
-                    drawMap(newPoints)
-                },
-                (error) => {
-                    // Handle possible errors
-                    switch (error.code) {
-                        case error.PERMISSION_DENIED:
-                            break;
-                        case error.POSITION_UNAVAILABLE:
-                            break;
-                        case error.TIMEOUT:
-                            break;
-                        case error.UNKNOWN_ERROR:
-                            break;
-                    }
-                }
-            );
-        } else {
-            console.log('not supported')
-        }
-    }
-
-
-    function drawMap(points) {
-        // Select the minimap element
-        const pointscontainer = document.getElementById('pointscontainer');
-        pointscontainer.innerHTML = '';
-        const minimap = document.getElementById('minimap');
-        const minimapWidth = minimap.offsetWidth - 20;
-        const minimapHeight = minimap.offsetHeight - 20;
-        console.log('height', minimapHeight);
-        console.log('width', minimapWidth);
-
-        // Get min/max latitude and longitude
-        const minLat = Math.min(...points.map(p => p[0]));
-        const maxLat = Math.max(...points.map(p => p[0]));
-        const minLng = Math.min(...points.map(p => p[1]));
-        const maxLng = Math.max(...points.map(p => p[1]));
-
-        console.log('Lat', minLat, maxLat);
-        console.log('minLng', minLng, maxLng);
-
-        // Function to transform latitude and longitude to x, y
-        function latLngToXY(lat, lng) {
-            const x = ((lng - minLng) / (maxLng - minLng)) * minimapWidth + 10;
-            const y = ((maxLat - lat) / (maxLat - minLat)) * minimapHeight + 10; // Reverse Y-axis because in browsers Y grows downward
-            return { x, y };
-        }
-
-        // Function to create a point div and place it on the minimap
-        function createPoint(x, y, color) {
-            const point = document.createElement('div');
-            point.classList.add('map-marker');
-            point.style.left = `${x - 5}px`;  // Subtract 5 to center the point
-            point.style.top = `${y - 5}px`;   // Subtract 5 to center the point
-            point.style.backgroundColor = color;
-            pointscontainer.appendChild(point);
-        }
-
-        // Add points to the minimap
-        points.forEach(([lat, lng, color]) => {
-            const { x, y } = latLngToXY(lat, lng);
-            createPoint(x, y, color);
-        });
-
-
-    }
-
+    
     setInterval(getLocation, 5000);
-    //const status = document.getElementById('statusLine');
-    //status.innerText = getBrowserInfo();
     
 </script>
 

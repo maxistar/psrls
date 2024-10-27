@@ -1,0 +1,25 @@
+#minimap {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    left: 0;
+    bottom: 0;
+    border: 1px solid white;
+    overflow: hidden;
+    color: white
+}
+
+.map-marker {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    overflow: hidden;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+#statusLine {
+    color: #888888;
+}

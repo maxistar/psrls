@@ -70,7 +70,7 @@
         }
 
         // Add points to the minimap
-        points.forEach(([lat, lng, color]) => {
+        window.points.forEach(([lat, lng, color]) => {
             const { x, y } = latLngToXY(lat, lng);
             createPoint(x, y, color);
         });
