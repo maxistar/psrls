@@ -1,11 +1,11 @@
 # Guided Adventures
 
 
-An Augmented Reality Application that runs right in your telegram wich helps you explore new places 
-share your favorite locations and feel bright motions during your trip
+An Augmented Reality application that runs directly in your Telegram, helping you explore new places, share your favorite locations, and experience vibrant emotions during your trip.
+
+A marketplace for adventures that encourages you to share and monetize your favorite locations.
 
 
-A market place for the adventures that anourige you share and monetyse your favorite locations
 
 Not Only Guides could be monetized:
 Geographic NFC is a killer feature of the game, having visited a place you can buy NFC which is only in this place, a smart contract guarantees that you can buy only having come to the place you need

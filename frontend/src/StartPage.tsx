@@ -10,8 +10,7 @@ const StartPage: React.FC<PageProps> = ({ handlePageSelect }) => {
                 Start your adventure right here...
             </p>
             <div className="mode-buttons">
-                <button className="mode-button" onClick={() => handlePageSelect('guide')}>Start!</button>
-                <button className="mode-button" onClick={() => handlePageSelect('feedback')}>Rate your Tour</button>
+                <button className="mode-button" onClick={() => handlePageSelect('select')}>Select a Tour</button>
             </div>
         </>
     );

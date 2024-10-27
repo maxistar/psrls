@@ -41,6 +41,20 @@
   color: #888;
 }
 
+.guide {
+  border: #0095DD solid 1px;
+  padding: 1em;
+  border-radius: 1em;
+  margin-bottom: 1em;
+}
+
+.guide h3 {
+  padding: 0;
+  margin: 0 0 1em;
+}
+
+.mode-buttons {
+}
 
 .mode-buttons button {
   padding: 0.75rem 1.5rem;
@@ -56,6 +70,10 @@
 
 .mode-buttons button:hover {
   background-color: #007bb5;
+}
+
+mode-buttons h3 {
+  
 }
 
 .feedbackField {
