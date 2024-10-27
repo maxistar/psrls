@@ -25,13 +25,11 @@ const Feedback: React.FC<PageProps>  = ({ handlePageSelect }) => {
                     
                 </textarea>
             </p>
-            
+
             <p className="mode-buttons">
-                <button className="mode-button" onClick={() => setTransaction('1000000')}>0.1 Ton</button>
-                <button className="mode-button" onClick={() => setTransaction('2000000')}>0.2 TON</button>
-                <button className="mode-button" onClick={() => setTransaction('5000000')}>0.5 TON</button>
-            </p>
-            <p>
+                <button className="mode-button" onClick={() => setTransaction('100000')}>0.1 Ton</button>
+                <button className="mode-button" onClick={() => setTransaction('200000')}>0.2 TON</button>
+                <button className="mode-button" onClick={() => setTransaction('500000')}>0.5 TON</button>
                 <button onClick={() => handlePageSelect('start')}>No Tip</button>
             </p>
 
