@@ -1,5 +1,6 @@
 import './StartPage.css';
 import {PageProps} from "./PageProps";
+import startPageImage  from "./assets/mapIimage.png";
 
 const StartPage: React.FC<PageProps> = ({ handlePageSelect }) => {
     
@@ -11,6 +12,9 @@ const StartPage: React.FC<PageProps> = ({ handlePageSelect }) => {
             </p>
             <div className="mode-buttons">
                 <button className="mode-button" onClick={() => handlePageSelect('select')}>Select a Tour</button>
+            </div>
+            <div className="imageContainer">
+                <img className="logoimage" src={ startPageImage } alt="Start page image" />
             </div>
         </>
     );
